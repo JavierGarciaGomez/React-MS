@@ -1,14 +1,17 @@
 // ..., 58
-import React from "react";
+import React, { useState } from "react";
 import { Expenses } from "./components/Expenses/Expenses";
 import { NewExpense } from "./components/NewExpense/NewExpense";
 
-import { expenses } from "./data/expenses";
+import { initialExpenses } from "./data/initialExpenses";
 
 export const App = () => {
+  const [expenses, setexpenses] = useState(initialExpenses);
+
   const addExpenseHandler = (newExpense) => {
-    expenses.push(newExpense);
-    console.log(expenses);
+    // setexpenses([...expenses, newExpense]);
+    setexpenses((previousExpenses) => [newExpense, ...previousExpenses]);
+    console.log("new expenses", expenses);
   };
   return (
     <div>

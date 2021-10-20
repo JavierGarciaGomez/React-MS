@@ -1,25 +1,33 @@
+// ..., 63, 66, 70
 import React, { useState } from "react";
 import { Card } from "../UI/Card";
 
-import { ExpenseItem } from "./ExpenseItem";
 import "./Expenses.css";
+import { ExpensesChart } from "./ExpensesChart";
 import { ExpensesFilter } from "./ExpensesFilter";
+import { ExpensesList } from "./ExpensesList";
 
 export const Expenses = ({ expenses }) => {
-  const [filter, setfilter] = useState("2022");
+  const [filteredYear, setFilteredYear] = useState("2021");
 
   const filterHandler = (year) => {
-    setfilter(year);
-    console.log("filter", filter);
+    setFilteredYear(year);
+    console.log("year", year);
   };
+
+  const filteredExpenses = expenses.filter(
+    (expense) => expense.date.getFullYear().toString() === filteredYear
+  );
 
   return (
     <div>
-      <ExpensesFilter filterHandler={filterHandler} selected={filter} />
       <Card className="expenses">
-        {expenses.map((expense) => (
-          <ExpenseItem {...expense} key={expense.id}></ExpenseItem>
-        ))}
+        <ExpensesFilter filterHandler={filterHandler} selected={filteredYear} />
+        <ExpensesChart expenses={filteredExpenses} />
+        <ExpensesList filteredExpenses={filteredExpenses} />
+        {/* 66 */}
+        {/* {filteredExpenses.length === 0 && <p> No expenses found</p>}
+      {filteredExpenses.length > 0 && ( */}
       </Card>
     </div>
   );
