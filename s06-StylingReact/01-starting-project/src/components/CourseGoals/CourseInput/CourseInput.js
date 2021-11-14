@@ -3,11 +3,13 @@ import React, { useState } from "react";
 
 import Button from "../../UI/Button/Button";
 // import "./CourseInput.css";
+// 77
 // import styled from "styled-components";
 
 // 80
 import styles from "./CourseInput.module.css";
 
+// 77
 // const div = styled.div`
 //   margin: 0.5rem 0;
 
@@ -39,11 +41,11 @@ import styles from "./CourseInput.module.css";
 
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
-  // 74
+  // 74 check if the input is valid
   const [isValid, setisValid] = useState(true);
 
   const goalInputChangeHandler = (event) => {
-    // 74
+    // 74 check if the input is valid. If is setEnteredValue
     if (event.target.value.trim().length > 0) {
       setisValid(true);
     }
@@ -58,18 +60,20 @@ const CourseInput = (props) => {
       return;
     }
     setisValid(true);
+    // if is valid, call the method
     props.onAddGoal(enteredValue);
   };
 
   return (
     <form onSubmit={formSubmitHandler}>
+      {/* 75 adding dinamically a class to the element */}
       <div
         className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
       >
-        {/* 74 */}
+        {/* 74 if is not valid, paint it red*/}
         {/* <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label> */}
         <label>Course Goal</label>
-        {/* 74 */}
+        {/* 74 if is not valid, paint background of the input */}
         {/* <input
           style={{
             background: !isValid ? "salmon" : "white",
