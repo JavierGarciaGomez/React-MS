@@ -41,7 +41,7 @@ export const AddUser = ({ addUser }) => {
         <ErrorModal
           title={error.title}
           message={error.message}
-          dicardError={errorHandler}
+          onConfirm={errorHandler}
         />
       ) : null}
 
