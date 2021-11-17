@@ -1,16 +1,18 @@
-// 137
+// 137, 145
 import classes from "./Input.module.css";
-import React from "react";
+import React, { forwardRef } from "react";
 
-const Input = ({ inputData }) => {
+// 145 adding forwardRef
+const Input = forwardRef(({ inputData }, ref) => {
+  console.log("ref from Input", ref);
   const { label, input } = inputData;
   const { id } = input;
   return (
     <div className={classes.input}>
       <label htmlFor={id}>{label}</label>
-      <input {...input}></input>
+      <input ref={ref} {...input}></input>
     </div>
   );
-};
+});
 
 export default Input;
