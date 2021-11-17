@@ -4,7 +4,6 @@ import React, { forwardRef } from "react";
 
 // 145 adding forwardRef
 const Input = forwardRef(({ inputData }, ref) => {
-  console.log("ref from Input", ref);
   const { label, input } = inputData;
   const { id } = input;
   return (

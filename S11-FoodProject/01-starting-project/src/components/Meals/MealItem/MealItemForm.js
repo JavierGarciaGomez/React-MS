@@ -8,7 +8,6 @@ const MealItemForm = ({ id, onAddToCart }) => {
   const [amountIsValid, setamountIsValid] = useState(true);
   // 145 useref
   const amountInputRef = useRef();
-  console.log(amountInputRef);
 
   // ..., 145
   const submitHandler = (event) => {
@@ -16,11 +15,7 @@ const MealItemForm = ({ id, onAddToCart }) => {
     const enteredAmount = +amountInputRef.current.value;
 
     // validation
-    if (
-      enteredAmount.trim().length === 0 ||
-      enteredAmount < 1 ||
-      enteredAmount > 5
-    ) {
+    if (enteredAmount === false || enteredAmount < 1 || enteredAmount > 5) {
       setamountIsValid(false);
       return;
     }
