@@ -81,10 +81,10 @@ button:active {
 
 button:disabled,
 button:disabled:hover, button:disabled:active {
-  background-color: lightgray;
-  color: gray;
-  border-color: gray;
-  cursor: not-allowed
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
 }
 
 .form-actions {

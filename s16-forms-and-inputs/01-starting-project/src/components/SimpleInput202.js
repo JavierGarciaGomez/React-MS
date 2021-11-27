@@ -2,44 +2,44 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const SimpleInput199 = (props) => {
+const SimpleInput202 = (props) => {
   const [enteredName, setenteredName] = useState("");
   // 200
-  const [enteredNameIsInvalid, setenteredNameIsInvalid] = useState(false);
+  // const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  // 202
+  const [enteredNameIsTouched, setEnteredNameIsTouched] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim() !== "";
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
 
   const nameInputChangeHandler = (e) => {
     setenteredName(e.target.value);
   };
 
+  const nameInputBlurHandler = () => {
+    setEnteredNameIsTouched(true);
+  };
+
   const formSubmissionHandler = (e) => {
     e.preventDefault();
-    console.log("submitting");
+    setEnteredNameIsTouched(true);
 
     // validating after submit
-    if (enteredName.trim().length === 0) {
-      setenteredNameIsInvalid(true);
+    if (!enteredNameIsValid) {
       return;
     }
 
     setenteredName("");
-    setenteredNameIsInvalid(false);
+    setEnteredNameIsTouched(false);
   };
 
-  console.log(
-    "fullstate",
-    "enteredName",
-    enteredName,
-    ". Invalid Input: ",
-    enteredNameIsInvalid.toString()
-  );
-
-  const nameInputClasses = !enteredNameIsInvalid
+  const nameInputClasses = !nameInputIsInvalid
     ? "form-control"
     : "form-control invalid";
 
   return (
     <form onSubmit={formSubmissionHandler}>
-      {enteredNameIsInvalid && <p>Input vacío</p>}
+      {nameInputIsInvalid && <p>Input vacío</p>}
       <div className={nameInputClasses}>
         <label htmlFor="name">Your Name</label>
         <input
@@ -47,6 +47,7 @@ const SimpleInput199 = (props) => {
           id="name"
           onChange={nameInputChangeHandler}
           value={enteredName}
+          onBlur={nameInputBlurHandler}
         />
       </div>
       <div className="form-actions">
@@ -56,4 +57,4 @@ const SimpleInput199 = (props) => {
   );
 };
 
-export default SimpleInput199;
+export default SimpleInput202;
