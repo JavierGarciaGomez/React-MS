@@ -1,11 +1,9 @@
-// ..., 285
-import { Fragment } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { Fragment } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-import QuoteItem from "./QuoteItem";
-import classes from "./QuoteList.module.css";
+import QuoteItem from './QuoteItem';
+import classes from './QuoteList.module.css';
 
-// 285
 const sortQuotes = (quotes, ascending) => {
   return quotes.sort((quoteA, quoteB) => {
     if (ascending) {
@@ -17,29 +15,26 @@ const sortQuotes = (quotes, ascending) => {
 };
 
 const QuoteList = (props) => {
-  // 285
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-  const isSortingAsc = queryParams.get("sort") === "asc";
 
-  const sortedQuotes = sortQuotes(props.quotes, isSortingAsc);
+  const isSortingAscending = queryParams.get('sort') === 'asc';
 
-  // 285, 287
+  const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
+
   const changeSortingHandler = () => {
-    // 287
-    history.push({
-      pathname: location.pathname,
-      search: `?sort=${isSortingAsc ? "desc" : "asc"}`,
+    navigate(location.pathname, {
+      search: `?sort=${isSortingAscending ? 'desc' : 'asc'}`,
     });
-    // history.push(`${location.pathname}?sort=${isSortingAsc ? "desc" : "asc"}`);
   };
+
   return (
     <Fragment>
       <div className={classes.sorting}>
         <button onClick={changeSortingHandler}>
-          Sort {isSortingAsc ? "Descending" : "Ascending"}
+          Sort {isSortingAscending ? 'Descending' : 'Ascending'}
         </button>
       </div>
       <ul className={classes.list}>
