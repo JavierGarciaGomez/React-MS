@@ -1,5 +1,5 @@
 // ..., 311, 312, 313
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 
 let logoutTimer;
 
@@ -52,16 +52,15 @@ export const AuthContextProvider = (props) => {
   const [token, settoken] = useState(initialToken);
   const userIsLoggedIn = !!token;
 
-  const logoutHandler = () => {
+  const logoutHandler = useCallback(() => {
     settoken(null);
-    // 311
     localStorage.removeItem("token");
     localStorage.removeItem("expirationTime");
 
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
-  };
+  }, []);
 
   const loginHandler = (token, expirationTime) => {
     settoken(token);
