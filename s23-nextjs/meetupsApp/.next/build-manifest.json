@@ -1,0 +1,53 @@
+{
+  "polyfillFiles": [
+    "static/chunks/polyfills-8f31809deb7932dd0187.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [
+    "static/iARJB4h4vj5rvmqPgv1Yi/_buildManifest.js",
+    "static/iARJB4h4vj5rvmqPgv1Yi/_ssgManifest.js"
+  ],
+  "pages": {
+    "/": [
+      "static/chunks/main-7581b9572029b5c4caf7.js",
+      "static/chunks/webpack-50bee04d1dc61f8adf5b.js",
+      "static/chunks/framework.36a632635a728ef34034.js",
+      "static/chunks/commons.b03b57bc91f6a338f5f2.js",
+      "static/css/d0664ca55565188381ab.css",
+      "static/chunks/pages/index-f15ad72281a9798e9472.js"
+    ],
+    "/[meetupId]": [
+      "static/chunks/main-7581b9572029b5c4caf7.js",
+      "static/chunks/webpack-50bee04d1dc61f8adf5b.js",
+      "static/chunks/framework.36a632635a728ef34034.js",
+      "static/chunks/commons.b03b57bc91f6a338f5f2.js",
+      "static/css/399901b7cd7de7b5141e.css",
+      "static/chunks/pages/[meetupId]-622bbf22318d3e1784a8.js"
+    ],
+    "/_app": [
+      "static/chunks/main-7581b9572029b5c4caf7.js",
+      "static/chunks/webpack-50bee04d1dc61f8adf5b.js",
+      "static/chunks/framework.36a632635a728ef34034.js",
+      "static/chunks/commons.b03b57bc91f6a338f5f2.js",
+      "static/css/b5d3e3c3f673c7197041.css",
+      "static/chunks/pages/_app-e4ffdaae4a8a09209418.js"
+    ],
+    "/_error": [
+      "static/chunks/main-7581b9572029b5c4caf7.js",
+      "static/chunks/webpack-50bee04d1dc61f8adf5b.js",
+      "static/chunks/framework.36a632635a728ef34034.js",
+      "static/chunks/commons.b03b57bc91f6a338f5f2.js",
+      "static/chunks/pages/_error-776adfdeccf9e005e60d.js"
+    ],
+    "/new-meetup": [
+      "static/chunks/main-7581b9572029b5c4caf7.js",
+      "static/chunks/webpack-50bee04d1dc61f8adf5b.js",
+      "static/chunks/framework.36a632635a728ef34034.js",
+      "static/chunks/commons.b03b57bc91f6a338f5f2.js",
+      "static/css/8c0df27fb11c99a27d29.css",
+      "static/chunks/pages/new-meetup-1865ec73568f76d06723.js"
+    ]
+  },
+  "ampFirstPages": []
+}
