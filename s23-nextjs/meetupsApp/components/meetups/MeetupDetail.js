@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import classes from "./MeetupDetail.module.css";
 
 const MeetupDetail = ({ meetupData }) => {
+  console.log("printing the data");
   return (
     <section className={classes.detail}>
       <img src={meetupData.image} alt={meetupData.title} />
