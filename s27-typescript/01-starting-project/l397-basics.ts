@@ -45,8 +45,8 @@ function addition(a: number, b: number): number {
   return a + b;
 }
 
-// 403 Generics
-function insertAtBeginning<T>(array: any[], value: any) {
+// 403 Generics: it will understand that is not any type, but must be the same type
+function insertAtBeginning<T>(array: T[], value: T) {
   const newArray = [value, ...array];
   return newArray;
 }
