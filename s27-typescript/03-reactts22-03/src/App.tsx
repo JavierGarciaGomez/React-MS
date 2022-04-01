@@ -3,19 +3,14 @@ import "./App.css";
 import { Todos } from "./components/Todos";
 import { Todo } from "./models/todo";
 import { NewTodo } from "./components/NewTodo";
+import { TodosContextProvider } from "./store/todos-context";
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const addTodoHandler = (todo: string) => {
-    setTodos((prev) => prev.concat(new Todo(todo)));
-  };
-
-  console.log(todos);
   return (
-    <Fragment>
-      <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
-    </Fragment>
+    <TodosContextProvider>
+      <NewTodo />
+      <Todos />
+    </TodosContextProvider>
   );
 }
 

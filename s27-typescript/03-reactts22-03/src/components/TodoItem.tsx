@@ -1,9 +1,17 @@
-import React from 'react'
-import { Todo } from '../models/todo';
+import React from "react";
+import { Todo } from "../models/todo";
 
-export const TodoItem: React.FC<{todo: Todo}> = (props) => {
-const {todo} = props;
+import classes from "./TodoItem.module.css";
+
+export const TodoItem: React.FC<{
+  todo: Todo;
+  onRemove: () => void;
+}> = (props) => {
+  const { todo, onRemove } = props;
+
   return (
-    <li>{todo.text}</li>
-  )
-}
+    <li className={classes.item} onClick={onRemove}>
+      {todo.text}
+    </li>
+  );
+};
