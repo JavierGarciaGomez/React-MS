@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Output from './Output';
+import Output from "./Output";
 
 const Greeting = () => {
   const [changedText, setChangedText] = useState(false);
