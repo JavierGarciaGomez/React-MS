@@ -22,12 +22,17 @@ export const CartProvider = ({ children }: Props) => {
     dispatch({ type: "REMOVE", payload: id });
   };
 
+  const handleClearCart = () => {
+    dispatch({ type: "CLEAR" });
+  };
+
   return (
     <CartContext.Provider
       value={{
         cartState,
         addItem: addItemToCartHandler,
         removeItem: removeItemToCartHandler,
+        clearCart: handleClearCart,
       }}
     >
       {children}
