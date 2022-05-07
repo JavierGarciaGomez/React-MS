@@ -1,0 +1,6 @@
+export const actionTypes2 = {
+  ADD: "ADD",
+  SUBSTRACT: "SUBSTRACT",
+  INCREASE_BY_VALUE: "INCREASE_BY_VALUE",
+  TOGGLE_COUNTER: "TOGGLE_COUNTER",
+};
